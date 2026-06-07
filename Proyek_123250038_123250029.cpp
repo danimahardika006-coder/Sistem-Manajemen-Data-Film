@@ -28,7 +28,7 @@ void cetakJudul(const string& teks) {
     cetakGaris();
 }
 
-//  FILE I/O
+// Operasi File
 void simpanKeFile() {
     ofstream file(NAMA_FILE);
     if (!file.is_open()) {
@@ -123,7 +123,7 @@ void muatDariFile() {
          << " data film berhasil dimuat dari '" << NAMA_FILE << "'.\n";
 }
 
-//  GENERATE ID OTOMATIS
+// Generate ID Otomatis
 int generateId() {
     int maxId = 0;
     for (int i = 0; i < jumlahFilm; i++)
@@ -192,8 +192,6 @@ void detailFilm(const Film& f) {
 }
 
 // Selection Sort – Judul A-Z
-// Cara kerja: Setiap iterasi, cari elemen dengan judul terkecil
-// dari posisi i hingga akhir, lalu tukar dengan posisi i.
 void selectionSortJudul() {
     int n = jumlahFilm;
     for (int i = 0; i < n - 1; i++) {
@@ -214,8 +212,6 @@ void selectionSortJudul() {
 }
 
 // Insertion Sort – Tahun terbaru ke terlama
-// Cara kerja: Ambil elemen ke-i, geser semua elemen sebelumnya
-// yang lebih kecil ke kanan, lalu sisipkan elemen ke posisi yang tepat.
 void insertionSortTahun() {
     int n = jumlahFilm;
     for (int i = 1; i < n; i++) {
@@ -232,8 +228,6 @@ void insertionSortTahun() {
 }
 
 // Bubble Sort – Rating tertinggi ke terendah
-// Cara kerja: Bandingkan dua elemen berdampingan, tukar jika
-// urutan salah. Ulangi hingga tidak ada pertukaran (array terurut).
 void bubbleSortRating() {
     int  n        = jumlahFilm;
     bool swapped;
@@ -249,15 +243,12 @@ void bubbleSortRating() {
                 swapped = true;
             }
         }
-        // Optimasi: hentikan jika tidak ada pertukaran di pass ini
+        // hentikan jika tidak ada pertukaran di pass ini
         if (!swapped) break;
     }
 }
 
 // Shell Sort – Sutradara A-Z
-// Cara kerja: Versi penyempurnaan Insertion Sort dengan gap awal n/2,
-// lalu gap diperkecil setengahnya setiap iterasi hingga gap = 1.
-// Elemen yang jauh bisa berpindah lebih cepat dibanding Insertion Sort biasa.
 void shellSortSutradara() {
     int n = jumlahFilm;
     // Mulai dengan gap besar, kecilkan hingga gap = 1
@@ -277,7 +268,7 @@ void shellSortSutradara() {
     }
 }
 
-//  Menu Sorting
+// Menu Sorting
 void urutkanFilm() {
     cetakJudul("URUTKAN FILM");
     if (jumlahFilm == 0){
@@ -409,10 +400,7 @@ void cariFilm() {
     }
 }
 
-//  HAPUS FILM BERDASARKAN JUDUL (FITUR BARU)
-// Cara kerja: Cari film yang judulnya sesuai input (sequential search),
-// lalu geser semua elemen sesudahnya ke kiri untuk menutup "lubang",
-// kemudian kurangi jumlahFilm sebanyak film yang dihapus.
+// Hapus Film Berdasarkan Judul
 void hapusFilm() {
     cetakJudul("HAPUS FILM");
     if (jumlahFilm == 0) {
@@ -425,7 +413,7 @@ void hapusFilm() {
     string judulCari;
     getline(cin, judulCari);
 
-    // Tahap 1: Cari semua film yang judulnya cocok dan tampilkan
+    // cari semua film yang judulnya cocok dan tampilkan
     int ditemukan = 0;
     for (int i = 0; i < jumlahFilm; i++) {
         if (daftarFilm[i].judul == judulCari) {
@@ -438,13 +426,13 @@ void hapusFilm() {
         }
     }
 
-    // Jika tidak ditemukan, batalkan proses
+    // jika tidak ditemukan, batalkan proses
     if (ditemukan == 0) {
         cout << "\n  [INFO] Film dengan judul '" << judulCari << "' tidak ditemukan.\n";
         return;
     }
 
-    // Tahap 2: Konfirmasi penghapusan dari user
+    // konfirmasi penghapusan dari user
     cout << "\n  Ditemukan " << ditemukan << " film dengan judul tersebut.\n";
     cout << "  Yakin ingin menghapus? (y/n): ";
     char konfirmasi;
@@ -455,7 +443,7 @@ void hapusFilm() {
         return;
     }
 
-    // Tahap 3: Hapus film dengan menggeser elemen array ke kiri
+    // hapus film dengan menggeser elemen array ke kiri
     int jumlahDihapus = 0;
     for (int i = 0; i < jumlahFilm; i++) {
         if (daftarFilm[i].judul == judulCari) {
@@ -483,7 +471,6 @@ void tampilkanMenu() {
     cout << "  [3] Urutkan Film\n"; 
     cout << "  [4] Cari Film\n";
     cout << "  [5] Hapus Film\n";
-    // cout << "  [6] Simpan ke File\n"; // Tambah: opsi simpan dipindah ke [6]
     cout << "  [6] Keluar\n";
     cetakGaris();
     cout << "  Pilihan: ";
@@ -521,13 +508,9 @@ int main() {
                 break;
             }
             case 5: {
-                hapusFilm();    // Ganti: semula simpanKeFile()
+                hapusFilm();
                 break;
             }
-            // case 6: {
-            //     simpanKeFile(); // Tambah: case baru untuk simpan ke file
-            //     break;
-            // }
             case 6: {
                 cetakGaris();
                 cout << "  Terima kasih! Program selesai.\n";
