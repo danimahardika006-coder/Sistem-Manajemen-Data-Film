@@ -85,3 +85,179 @@ Data akan otomatis:
 - Dimuat saat program dijalankan
 
 ---
+## 🔍 Algoritma Searching
+
+Program menggunakan:
+
+### Sequential Search
+
+Digunakan untuk mencari film berdasarkan:
+
+- Judul
+- Genre
+- Sutradara
+- Tahun
+
+Kompleksitas:
+
+```text
+Best Case  : O(1)
+Worst Case : O(n)
+```
+
+---
+
+## 🔄 Algoritma Sorting
+
+Program mengimplementasikan 4 algoritma sorting berbeda.
+
+| Kriteria | Algoritma |
+|-----------|-----------|
+| Judul A-Z | Selection Sort |
+| Tahun Terbaru → Terlama | Insertion Sort |
+| Rating Tertinggi → Terendah | Bubble Sort |
+| Sutradara A-Z | Shell Sort |
+
+### Selection Sort
+Mengurutkan film berdasarkan judul.
+
+```text
+Time Complexity: O(n²)
+```
+
+### Insertion Sort
+Mengurutkan berdasarkan tahun rilis terbaru.
+
+```text
+Time Complexity:
+Best Case  : O(n)
+Worst Case : O(n²)
+```
+
+### Bubble Sort
+Mengurutkan berdasarkan rating tertinggi.
+
+```text
+Time Complexity: O(n²)
+```
+
+### Shell Sort
+Mengurutkan berdasarkan nama sutradara.
+
+```text
+Time Complexity: ± O(n log n)
+```
+
+---
+
+## 💾 Format Penyimpanan File
+
+Contoh isi file:
+
+```txt
+1
+Interstellar
+Sci-Fi
+Christopher Nolan
+2014
+8.9
+---
+2
+Inception
+Sci-Fi
+Christopher Nolan
+2010
+8.8
+---
+```
+
+Tanda:
+
+```txt
+---
+```
+
+digunakan sebagai pemisah antar record film.
+
+---
+
+## 🖥️ Tampilan Menu
+
+```text
+============================================================
+     SISTEM MANAJEMEN DATA FILM
+============================================================
+  [1] Tambah Film Baru
+  [2] Lihat Daftar Film
+  [3] Urutkan Film
+  [4] Cari Film
+  [5] Hapus Film
+  [6] Keluar
+============================================================
+```
+
+---
+
+## 📂 Struktur Project
+
+```text
+📁 Sistem-Manajemen-Film
+│
+├── Proyek_123250038_123250024.cpp
+├── data_film.txt
+└── README.md
+```
+
+---
+
+## 🚀 Cara Menjalankan Program
+
+### Compile
+
+```bash
+g++ Proyek_123250038_123250024.cpp -o film
+```
+
+### Run
+
+```bash
+./film
+```
+
+Untuk Windows:
+
+```bash
+film.exe
+```
+
+---
+
+## 📚 Konsep yang Diimplementasikan
+
+- Struct
+- Array
+- Function
+- File Handling (ifstream & ofstream)
+- Sequential Search
+- Selection Sort
+- Insertion Sort
+- Bubble Sort
+- Shell Sort
+- CRUD Sederhana
+- Generate ID Otomatis
+
+---
+
+## 🎯 Tujuan Proyek
+
+Membangun sistem pengelolaan data film sederhana sebagai implementasi materi:
+
+- Struktur Data
+- Algoritma Sorting
+- Algoritma Searching
+- Pengolahan File
+- Pemrograman C++
+
+---
+
+⭐ Jika repository ini bermanfaat, jangan lupa berikan star pada GitHub repository ini.
